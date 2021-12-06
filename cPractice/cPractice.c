@@ -1,9 +1,11 @@
 ﻿#include <stdio.h>
 
-int main() {
+
+void day1() {
+	// Первый день занятий
 	int count = 3235;
 	char start = 115;
-	printf("|%10c|%10s|%-10d|\n", start, ".", count-2345);
+	printf("|%10c|%10s|%-10d|\n", start, ".", count - 2345);
 
 	int list[3];
 	list[1] = 3;
@@ -11,7 +13,7 @@ int main() {
 	list[4] = 6;
 	printf("|%5d|%5d|%5d|%5d|\n", list[0], list[1], list[2], list[4]);
 
-	char chars[] = {'s', 't', 'r', 'i', 'n', 'g', '\0' };
+	char chars[] = { 's', 't', 'r', 'i', 'n', 'g', '\0' };
 	printf("%s\n", chars);
 
 
@@ -43,5 +45,62 @@ int main() {
 	printf("%20s: %10lu\n", "Array of 10 integers", sizeof(a11));
 	printf("%20s: %10lu\n", "String <hello>", sizeof(a12));
 
+}
+
+
+void day2() {
+	// Второй день занятий
+	char one_char = '4';
+	char two_char = '7';
+	printf("%d\n", one_char + two_char);
+
+
+	char not_num[] = "528";
+	int num = (not_num[0] - 48) * 100 + (not_num[1] - 48) * 10 + (not_num[2] - 48);
+	printf("%d, %d, %d, %d\n", not_num[0], not_num[1], not_num[2], num - 10);
+
+	char char_A = 65;
+	printf("%c|%c|%c|\n", char_A + 5, char_A + 12, char_A + 19);
+
+	char busy_string[] = "\tthis \ris very \bbusy \"string\"\%";
+	printf("%s\n", busy_string);
+
+
+	int a = 12;
+	int b = 15;
+	int c = 17;
+	int d = 28;
+	printf("%d\n", a == b && c < d);
+	printf("%d\n", c < d);
+
+
+	if (a > b) {
+		printf("nop\n");
+	} else if (a == b) {
+		printf("nop2\n");
+	} else {
+		if (a <= 0){
+			printf("nop3\n");
+		}
+		else {
+			printf("yep\n");
+		}
+	}
+	switch (a) {
+	case 11:
+		printf("%d ", 0);
+	case 12:
+		printf("%d ", 1);
+	case 13:
+		printf("%d ", 2);
+		break;
+	default:
+		printf("%d \n", -1);
+	}
+}
+
+int main() {
+	
+	day2();
 	return 0;
 }
