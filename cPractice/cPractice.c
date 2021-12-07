@@ -99,8 +99,55 @@ void day2() {
 	}
 }
 
+void day3() {
+	int star = 0;
+	while (star < 55) {
+		star++;
+		printf("*");
+	}
+	char symbol = 0;
+	while (symbol != 127) {
+		if (symbol % 10 == 0) {
+			printf("%d - %c\n", symbol, symbol);
+		}
+		else {
+			printf("%d - %c ", symbol, symbol);
+		}
+		++symbol;
+	}
+	printf("----------------------------------\n");
+	int number_line = 0;
+	int number_tile = 0;
+	while (number_line != 10) {
+		++number_line;
+		while (number_tile != 10) {
+			++number_tile;
+			printf("%3d ", number_line * number_tile);
+		}
+		number_tile = 0;
+		printf("\n");
+	}
+
+
+	int a = 0;
+	do {
+		printf("%d\n", a % 10);
+		a = a / 10;
+	} while (a > 0);
+
+	
+	
+	for (int for_number_line = 1; for_number_line < 10; for_number_line++, printf("\n")) {
+		for (int for_number_tile = 1; for_number_tile < 10; for_number_tile++) {
+			printf("%3d ", for_number_line*for_number_tile);
+		}
+	}
+
+
+}
+
 int main() {
 	
-	day2();
+	day3();
 	return 0;
 }
