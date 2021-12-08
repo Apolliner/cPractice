@@ -1,4 +1,5 @@
 ﻿#include <stdio.h>
+#include <math.h>
 
 
 void day1() {
@@ -100,6 +101,7 @@ void day2() {
 }
 
 void day3() {
+	// Третий день занятий
 	int star = 0;
 	while (star < 55) {
 		star++;
@@ -146,8 +148,42 @@ void day3() {
 
 }
 
+
+void day4() {
+	// Четвёртый день занятий
+	int a, b;
+	a = 017;
+	b = 036;
+	printf("0%o & 0%o = 0%o\n", a, b, a & b);
+	printf("0%o | 0%o = 0%o\n", a, b, a | b);
+	printf("0%o ^ 0%o = 0%o\n", a, b, a ^ b);
+	printf("0%o << 2 = 0%o\n", a, a << 2);
+	printf("0%o >> 2 = 0%o\n", a, a >> 2);
+	printf("~0%o = 0%o\n", a, ~a);
+
+	printf("\n");
+
+	int numbers[10] = { 1, 1, -5, 3, -6, 2, 0, -1, -3, 0 };
+	int mask = 0;
+	for (int i = 0; i <= 10; i++) {
+		if (numbers[i] >= 0) {
+			mask = mask | (int)pow(2, 10-i-1);
+		}
+	}
+	printf("Octal - %o| Decimal - %d\n\n", mask, mask);
+
+	char str[] = "test putchar()";
+	for (int i = 0; str[i] != '\0'; i++) {
+		putchar(str[i]);
+		putchar('-');
+	}
+
+		
+
+}
+
 int main() {
 	
-	day3();
+	day4();
 	return 0;
 }
