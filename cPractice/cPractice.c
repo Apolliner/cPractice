@@ -182,8 +182,114 @@ void day4() {
 
 }
 
+void day5() {
+	// Пятый день занятий
+	int i = 22524;
+	printf("i=%d, &i=%p \n", i, &i);
+
+	int a = 6;
+	float b = 10.11;
+	char c = 'k';
+
+	printf("%5d - %p\n", a, &a);
+	printf("%5.2f - %p\n", b, &b);
+	printf("%5c - %p\n", c, &c);
+
+	a = 2;
+	b = 50.99;
+	c = 'z';
+
+	printf("%5d - %p\n", a, &a);
+	printf("%5.2f - %p\n", b, &b);
+	printf("%5c - %p\n", c, &c);
+
+	int x = 1, y, z = 3;
+	int* p, * q;
+
+	p = &x;
+	printf("%d\n", *p); // 1
+
+	y = *p;
+	printf("%d\n", y); // 1
+
+	*p = 0;
+	printf("%d %d\n", x, y); // 0 1
+
+	q = &z;
+	printf("%d\n", *q); // 3
+
+	p = q;
+	*p = 4;
+	printf("%d\n", z); // 4
+
+	printf("%p %p\n\n", p, q); // p == q
+
+	int* pi;
+	float* pf;
+
+	printf("%lu\n", sizeof(pi));
+	printf("%lu\n", sizeof(pf));
+
+	int l = 5;
+	float v = 6.98;
+	int* pa;
+	float* pc;
+
+	pa = NULL;
+	pc = NULL;
+
+	// printf(" %15p %15p\n", pa, pc);
+
+	// Error
+	// printf(" %15d %15f\n", *pa, *pc);
+
+	pa = &l;
+	pc = &v;
+
+	printf(" %15p %15p\n", pa, pc);
+	printf(" %15d %15f\n", *pa, *pc);
+
+}
+
+int cube(int); // Объявление переменной до main
+
+int hello();
+
+void multi(int* px, int y);
+
 int main() {
 	
-	day4();
+	day5();
+	int z = 5;
+	int c = 2;
+	int n = 1;
+	printf("%5d|%5d|%5d|\n", cube(z), cube(c), cube(n));
+
+	printf(" - %d-й вызов\n", hello());
+	printf(" - %d-й вызов\n", hello());
+	printf(" - %d-й вызов\n", hello());
+
+	int x = 34, y = 6;
+
+	multi(&x, 367);
+	multi(&y, 91);
+	printf("%d %d\n", x, y);
 	return 0;
+}
+
+int cube(int x) { // Определение функции в любом месте после main
+	return pow(x, 3);
+}
+
+int hello() {
+	static count = 1;
+	printf("Hello world!");
+	return count++;
+}
+
+void multi(int *base, int pow) {
+	while (pow >= 10) {
+		*base = *base * 10;
+		pow = pow / 10;
+	}
 }
