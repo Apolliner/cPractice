@@ -251,6 +251,8 @@ void day5() {
 
 }
 
+void day6();
+
 int cube(int); // Объявление переменной до main
 
 int hello();
@@ -259,6 +261,7 @@ void multi(int* px, int y);
 
 int main() {
 	
+	/*
 	day5();
 	int z = 5;
 	int c = 2;
@@ -274,6 +277,9 @@ int main() {
 	multi(&x, 367);
 	multi(&y, 91);
 	printf("%d %d\n", x, y);
+	*/
+
+	day6();
 	return 0;
 }
 
@@ -292,4 +298,28 @@ void multi(int *base, int pow) {
 		*base = *base * 10;
 		pow = pow / 10;
 	}
+}
+
+void day6() {
+	// Шестой день занятий по Си
+	/*int zero;
+	char ch, buf[30];
+	ch = scanf_s("%s%d", buf, 5, &zero);
+	printf("%s|%d|%d\n", buf, zero, ch);
+
+	int q, w, e;
+	w = 5;
+	char ch2;
+	ch2 = scanf_s("%d + %*d = %d", &q, &w, &e); // Игнорируется w
+	printf("Your answer is %d\n", e);
+	printf("The correct is %d\n", q + w);
+	printf("count: %d", ch2);
+	*/
+	char str[30] = "";
+
+	scanf_s("%[0-9]", str, 30);
+	printf("%s\n", str);
+
+	scanf_s("%[^;:,!?]", str, 30);
+	printf("%s\n", str);
 }
