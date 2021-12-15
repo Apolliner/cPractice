@@ -1,5 +1,7 @@
 ﻿#include <stdio.h>
 #include <math.h>
+#include <stdlib.h>
+#include <time.h>
 
 
 void day1() {
@@ -259,6 +261,8 @@ int hello();
 
 void multi(int* px, int y);
 
+void day7();
+
 int main() {
 	
 	/*
@@ -279,7 +283,7 @@ int main() {
 	printf("%d %d\n", x, y);
 	*/
 
-	day6();
+	day7();
 	return 0;
 }
 
@@ -322,4 +326,47 @@ void day6() {
 
 	scanf_s("%[^;:,!?]", str, 30);
 	printf("%s\n", str);
+}
+
+void day7() {
+	// Седьмой день занятий
+	/*int random;
+	random = rand();
+	printf("Random integer = %d\n", random);
+	int random2;
+	random2 = rand();
+	printf("Random2 integer = %d\n", random2);
+	char i;
+	for (i = 1; i <= 50; i++) {
+		printf("%15d", rand());
+		if (i % 5 == 0) printf("\n");
+	}
+	
+	char query;
+	scanf_s("%d", &query, 1);
+	printf("query = %d\n", query);
+	srand(query);
+	char v;
+	for (v = 1; v <= 50; v++) {
+		printf("%15d", rand());
+		if (v % 5 == 0) printf("\n");
+	}
+	
+	int time_null = time(NULL);
+	srand(time_null);
+	printf("time = %d, random number = %d", time_null, rand());
+	*/
+	int max_range = 100; // Если нужно поднять минимальную границу, то нужно приплюсовывать её значение к каждому выводу
+	for (int i = 1; i <= 50; i++) {
+		int rand_int = rand();
+		if (rand_int < max_range) {
+			printf("%5d", rand_int);
+		} else {
+			printf("%5d", rand_int % max_range);
+		}
+		if (i % 5 == 0) {
+			printf("\n");
+		}
+	}
+	printf("\n");
 }
