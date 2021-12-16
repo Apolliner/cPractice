@@ -263,6 +263,8 @@ void multi(int* px, int y);
 
 void day7();
 
+void day8();
+
 int main() {
 	
 	/*
@@ -283,7 +285,7 @@ int main() {
 	printf("%d %d\n", x, y);
 	*/
 
-	day7();
+	day8();
 	return 0;
 }
 
@@ -369,4 +371,65 @@ void day7() {
 		}
 	}
 	printf("\n");
+}
+
+#define N 10
+
+void day8() {
+	// Восьмой день занятий
+	/*
+	int i;
+	int arr[5] = { 0 };
+
+	srand(time(NULL));
+
+	for (i = 0; i < N; i++)
+		switch (rand() % 5) {
+		case 0: arr[0]++; break;
+		case 1: arr[1]++; break;
+		case 2: arr[2]++; break;
+		case 3: arr[3]++; break;
+		case 4: arr[4]++; break;
+		}
+
+	for (i = 0; i < 5; i++)
+		printf("%d - %.2f%%\n", i,
+			((float)arr[i] / N) * 100);
+	
+	int arrI[10], i;
+	for (i = 0; i < N; i++)
+		printf("%d - %p\n", i, &arrI[i]);
+	
+	int* pI;
+	pI = &arrI[4];
+	int* number;
+	for (i = 0; i < N; i++)
+		printf("%p\n", pI + i);
+	
+	printf("%p = %p\n", arrI, &arrI[0]);
+	printf("\n");
+	for (i = 0; i < N; i++)
+		printf("%p\n", arrI + i);
+	printf("\n");
+	for (i = 0; i < N; i++)
+		printf("%d\n", *(arrI + i));
+	*/
+
+	int arrI[N], i;
+	int* pI;
+
+	pI = &arrI[5];
+
+	for (i = 0; i < N; i++)
+		printf("%p, %p\n", &pI[i], &arrI[i]);
+
+	char str[20], * ps = str, n = 0; // Создаётся массив и ссылка на его первый элемент.
+
+	printf("Enter word: ");
+	scanf_s("%s", str, 20);
+
+	while (*ps++ != '\0') n++; // Производится инкремент по ссылке, который позволяет получить значения массива по порядку.
+
+	printf("%d\n", n);
+
 }
